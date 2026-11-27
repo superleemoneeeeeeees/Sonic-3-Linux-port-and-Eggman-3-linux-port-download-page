@@ -1,0 +1,678 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#102e2a">
+    <meta name="description" content="A fan-made field guide to finding mods for Sonic 3 A.I.R.">
+    <title>AIR Supply — Sonic 3 A.I.R. Mod Archive</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            color-scheme: light;
+            --ink: #172521;
+            --paper: #f5f4ed;
+            --muted: #65726c;
+            --line: #d9ddd3;
+            --lime: #d4f54b;
+            --green: #164c3a;
+            --coral: #ef7455;
+            --blue: #66d8d6;
+            --display: "Barlow Condensed", Impact, sans-serif;
+            --body: "DM Sans", sans-serif;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            margin: 0;
+            color: var(--ink);
+            background: var(--paper);
+            font-family: var(--body);
+            -webkit-font-smoothing: antialiased;
+        }
+        a { color: inherit; }
+        button, input { font: inherit; }
+        button:focus-visible, a:focus-visible, input:focus-visible {
+            outline: 3px solid var(--coral);
+            outline-offset: 3px;
+        }
+
+        .topbar {
+            height: 74px;
+            padding: 0 max(5vw, 22px);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+            background: var(--paper);
+        }
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 11px;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 800;
+            letter-spacing: 0;
+            white-space: nowrap;
+        }
+        .brand-mark {
+            width: 35px;
+            height: 35px;
+            display: grid;
+            place-items: center;
+            color: var(--ink);
+            background: var(--lime);
+            border: 2px solid var(--ink);
+            font-family: var(--display);
+            font-size: 24px;
+            line-height: 1;
+            transform: rotate(-4deg);
+        }
+        .brand small {
+            display: block;
+            margin-top: 2px;
+            color: var(--muted);
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .nav-links { display: flex; align-items: center; gap: 30px; }
+        .nav-links a {
+            font-size: 13px;
+            font-weight: 700;
+            text-decoration: none;
+        }
+        .nav-links a:hover { color: var(--green); }
+        .nav-links .nav-cta {
+            padding: 11px 16px;
+            border: 1px solid var(--ink);
+            transition: background .18s ease, color .18s ease;
+        }
+        .nav-links .nav-cta:hover { color: var(--paper); background: var(--ink); }
+
+        .hero {
+            position: relative;
+            min-height: 570px;
+            overflow: hidden;
+            color: white;
+            background: #102e2a;
+            isolation: isolate;
+        }
+        #pixel-landscape {
+            position: absolute;
+            z-index: -2;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            image-rendering: pixelated;
+        }
+        .hero::after {
+            position: absolute;
+            z-index: -1;
+            inset: 0;
+            content: "";
+            background: linear-gradient(90deg, rgba(10, 35, 31, .88) 0%, rgba(10, 35, 31, .62) 43%, rgba(10, 35, 31, .02) 100%), linear-gradient(0deg, rgba(10, 35, 31, .42), transparent 40%);
+        }
+        .hero-inner {
+            width: min(1240px, 90%);
+            min-height: 570px;
+            margin: auto;
+            padding: 84px 0 42px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+        }
+        .eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            margin: 0 0 17px;
+            color: var(--lime);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+        .eyebrow::before { width: 22px; height: 2px; content: ""; background: currentColor; }
+        h1, h2, h3, p { margin-top: 0; }
+        .hero h1 {
+            max-width: 720px;
+            margin-bottom: 16px;
+            font-family: var(--display);
+            font-size: clamp(68px, 9.5vw, 128px);
+            font-weight: 900;
+            line-height: .78;
+            letter-spacing: 0;
+            text-transform: uppercase;
+        }
+        .hero h1 span { color: var(--lime); }
+        .hero-copy {
+            max-width: 435px;
+            margin-bottom: 26px;
+            color: rgba(255,255,255,.82);
+            font-size: 15px;
+            line-height: 1.65;
+        }
+        .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 11px; }
+        .button {
+            min-height: 47px;
+            padding: 0 18px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            border: 1px solid transparent;
+            font-size: 12px;
+            font-weight: 800;
+            text-decoration: none;
+            transition: transform .18s ease, background .18s ease;
+        }
+        .button:hover { transform: translateY(-2px); }
+        .button-primary { color: var(--ink); background: var(--lime); }
+        .button-primary:hover { background: #e2ff74; }
+        .button-outline { color: white; border-color: rgba(255,255,255,.55); background: rgba(13,36,32,.25); }
+        .button-outline:hover { background: rgba(255,255,255,.13); }
+        .hero-note {
+            margin: 36px 0 0;
+            color: rgba(255,255,255,.7);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .hero-note strong { color: white; }
+
+        .ticker {
+            min-height: 49px;
+            padding: 12px 5vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: clamp(18px, 4vw, 55px);
+            color: var(--ink);
+            background: var(--lime);
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: .8px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+        .ticker span { display: inline-flex; align-items: center; gap: 9px; }
+        .ticker span::before { width: 6px; height: 6px; content: ""; background: var(--coral); transform: rotate(45deg); }
+
+        main { width: min(1240px, 90%); margin: 0 auto; }
+        .directory { padding: 79px 0 89px; }
+        .section-head {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 30px;
+            margin-bottom: 29px;
+        }
+        .section-kicker {
+            margin-bottom: 9px;
+            color: #638171;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+        }
+        .section-head h2, .about h2 {
+            margin-bottom: 0;
+            font-family: var(--display);
+            font-size: clamp(40px, 5vw, 59px);
+            font-weight: 800;
+            line-height: .95;
+            text-transform: uppercase;
+        }
+        .section-intro { max-width: 330px; margin-bottom: 2px; color: var(--muted); font-size: 13px; line-height: 1.65; }
+        .directory-tools {
+            padding: 17px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+        }
+        .filters { display: flex; flex-wrap: wrap; gap: 6px; }
+        .filter-button {
+            min-height: 34px;
+            padding: 0 12px;
+            color: var(--muted);
+            border: 1px solid transparent;
+            background: transparent;
+            cursor: pointer;
+            font-size: 11px;
+            font-weight: 700;
+            transition: color .16s ease, background .16s ease;
+        }
+        .filter-button:hover { color: var(--ink); background: #e7e9df; }
+        .filter-button[aria-pressed="true"] { color: white; background: var(--green); }
+        .search-wrap {
+            width: min(270px, 100%);
+            min-height: 38px;
+            padding: 0 11px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid var(--line);
+            background: #fffef9;
+        }
+        .search-wrap svg { flex: 0 0 15px; color: var(--muted); }
+        .search-wrap input { width: 100%; min-width: 0; padding: 8px 0; border: 0; outline: 0; color: var(--ink); background: transparent; font-size: 11px; }
+        .search-wrap input::placeholder { color: #89928c; }
+
+        .category-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 13px; padding-top: 18px; }
+        .category-card {
+            min-height: 260px;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            border: 1px solid var(--line);
+            background: #fffef9;
+            transition: border-color .2s ease, transform .2s ease;
+        }
+        .category-card:hover { border-color: #9baa9d; transform: translateY(-3px); }
+        .category-card[hidden] { display: none; }
+        .card-art {
+            position: relative;
+            height: 119px;
+            overflow: hidden;
+            background: var(--art-bg);
+        }
+        .card-art::before, .card-art::after { position: absolute; content: ""; }
+        .card-art::before {
+            width: 125px;
+            height: 70px;
+            right: 10px;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent 10px, rgba(17,45,37,.9) 10px 20px, transparent 20px 30px, rgba(17,45,37,.9) 30px 40px, transparent 40px 50px, rgba(17,45,37,.9) 50px 60px, transparent 60px 70px, rgba(17,45,37,.9) 70px 80px, transparent 80px 90px, rgba(17,45,37,.9) 90px 100px, transparent 100px), linear-gradient(rgba(17,45,37,.9) 10px, transparent 10px 20px, rgba(17,45,37,.9) 20px 30px, transparent 30px 40px, rgba(17,45,37,.9) 40px 50px, transparent 50px 60px, rgba(17,45,37,.9) 60px 70px);
+            opacity: .8;
+            image-rendering: pixelated;
+        }
+        .card-art::after {
+            width: 36px;
+            height: 36px;
+            top: 20px;
+            right: 31px;
+            border: 7px solid rgba(255,255,255,.78);
+            border-radius: 50%;
+            box-shadow: 0 0 0 3px rgba(17,45,37,.2);
+        }
+        .card-art .art-label {
+            position: absolute;
+            z-index: 1;
+            left: 16px;
+            bottom: 13px;
+            color: rgba(255,255,255,.92);
+            font-family: var(--display);
+            font-size: 43px;
+            font-weight: 800;
+            line-height: .8;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 0 rgba(18,43,37,.35);
+        }
+        .art-character { --art-bg: linear-gradient(130deg, #ed7958 0 45%, #e9b64d 45%); }
+        .art-zones { --art-bg: linear-gradient(155deg, #5ac6c1, #2c7974); }
+        .art-play { --art-bg: linear-gradient(135deg, #a4ca4b, #5e9d53); }
+        .art-audio { --art-bg: linear-gradient(135deg, #7d8fc2, #48578e); }
+        .art-play::after { width: 44px; height: 44px; top: 35px; right: 25px; border-width: 0 7px 7px 0; border-radius: 0; transform: rotate(-45deg); }
+        .art-audio::after { width: 52px; height: 52px; top: 24px; right: 24px; border-width: 4px; border-left-color: transparent; }
+        .card-content { padding: 16px; display: flex; flex: 1; flex-direction: column; align-items: flex-start; }
+        .card-meta { margin-bottom: 7px; color: #708077; font-size: 9px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; }
+        .card-content h3 { margin-bottom: 7px; font-family: var(--display); font-size: 25px; font-weight: 800; line-height: 1; text-transform: uppercase; }
+        .card-content p { min-height: 36px; margin-bottom: 13px; color: var(--muted); font-size: 11px; line-height: 1.55; }
+        .card-link {
+            margin-top: auto;
+            padding: 0 0 3px;
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            color: var(--green);
+            border: 0;
+            border-bottom: 1px solid #91a99a;
+            background: transparent;
+            cursor: pointer;
+            font-size: 10px;
+            font-weight: 800;
+            text-decoration: none;
+        }
+        .card-link:hover { color: #317b58; border-color: currentColor; }
+        .card-link svg { width: 12px; height: 12px; }
+        .no-results { padding: 35px 0; color: var(--muted); font-size: 13px; }
+        .no-results[hidden] { display: none; }
+
+        .about {
+            padding: 58px 0 62px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 50px;
+            border-top: 1px solid var(--line);
+        }
+        .about-copy { max-width: 480px; color: var(--muted); font-size: 13px; line-height: 1.7; }
+        .about-copy p { margin: 0 0 18px; }
+        .about-links { display: flex; flex-wrap: wrap; gap: 10px; }
+        .resource-link {
+            min-height: 42px;
+            padding: 0 13px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid var(--ink);
+            font-size: 11px;
+            font-weight: 800;
+            text-decoration: none;
+            transition: background .18s ease, color .18s ease;
+        }
+        .resource-link:hover { color: white; background: var(--ink); }
+        .resource-link svg { width: 14px; height: 14px; }
+        footer {
+            min-height: 76px;
+            padding: 20px 5vw;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            color: rgba(255,255,255,.7);
+            background: var(--ink);
+            font-size: 10px;
+        }
+        footer a { color: white; text-decoration-color: #83aa8f; text-underline-offset: 3px; }
+        .footer-mark { color: var(--lime); font-family: var(--display); font-size: 17px; font-weight: 800; }
+
+        @media (max-width: 850px) {
+            .hero, .hero-inner { min-height: 525px; }
+            .hero-inner { padding-top: 70px; }
+            .hero::after { background: linear-gradient(90deg, rgba(10,35,31,.88), rgba(10,35,31,.43) 75%), linear-gradient(0deg, rgba(10,35,31,.42), transparent 45%); }
+            .category-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .about { gap: 28px; }
+        }
+        @media (max-width: 600px) {
+            .topbar { height: 65px; padding-inline: 18px; }
+            .nav-links { gap: 13px; }
+            .nav-links a { font-size: 11px; }
+            .nav-links a:first-child { display: none; }
+            .nav-links .nav-cta { padding: 9px 10px; }
+            .hero, .hero-inner { min-height: 555px; }
+            .hero-inner { width: calc(100% - 38px); padding: 64px 0 34px; }
+            .hero h1 { font-size: clamp(67px, 18vw, 94px); }
+            .hero-copy { max-width: 340px; font-size: 14px; }
+            .hero-note { margin-top: 27px; font-size: 9px; }
+            .ticker { flex-wrap: wrap; justify-content: center; white-space: normal; }
+            main { width: calc(100% - 38px); }
+            .directory { padding: 60px 0 65px; }
+            .section-head { align-items: flex-start; flex-direction: column; gap: 11px; margin-bottom: 22px; }
+            .section-intro { max-width: 380px; }
+            .directory-tools { align-items: stretch; flex-direction: column-reverse; }
+            .search-wrap { width: 100%; }
+            .filters { gap: 3px; }
+            .filter-button { padding-inline: 9px; }
+            .category-grid { gap: 9px; padding-top: 12px; }
+            .card-art { height: 95px; }
+            .card-art .art-label { left: 11px; bottom: 11px; font-size: 35px; }
+            .card-art::before { right: -23px; transform: scale(.8); transform-origin: bottom right; }
+            .card-art::after { right: 17px; transform: scale(.8); }
+            .art-play::after { transform: rotate(-45deg) scale(.8); }
+            .card-content { padding: 12px; }
+            .card-content h3 { font-size: 22px; }
+            .card-content p { min-height: 50px; font-size: 10px; }
+            .about { grid-template-columns: 1fr; gap: 23px; padding: 42px 0; }
+            footer { align-items: flex-start; flex-direction: column; gap: 7px; padding: 18px 20px; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+        }
+    </style>
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" href="#top" aria-label="AIR Supply home">
+            <span class="brand-mark" aria-hidden="true">A</span>
+            <span>AIR SUPPLY<small>mod field guide</small></span>
+        </a>
+        <nav class="nav-links" aria-label="Main navigation">
+            <a href="#archive">Explore</a>
+            <a href="#about">About</a>
+            <a class="nav-cta" href="https://sonic3air.org/" target="_blank" rel="noreferrer">Get Sonic 3 A.I.R. <span aria-hidden="true">↗</span></a>
+        </nav>
+    </header>
+
+    <section class="hero" id="top" aria-labelledby="hero-title">
+        <canvas id="pixel-landscape" aria-hidden="true"></canvas>
+        <div class="hero-inner">
+            <p class="eyebrow">A fan-made mod field guide</p>
+            <h1 id="hero-title">Make it<br><span>your</span> run.</h1>
+            <p class="hero-copy">Find new ways to play Sonic 3 A.I.R. From character swaps to reworked zones, start with the part of your next run you want to change.</p>
+            <div class="hero-actions">
+                <a class="button button-primary" href="#archive">Explore mod types <span aria-hidden="true">↓</span></a>
+                <a class="button button-outline" href="https://github.com/Eukaryot/sonic3air" target="_blank" rel="noreferrer">Visit the project <span aria-hidden="true">↗</span></a>
+            </div>
+            <p class="hero-note"><strong>SONIC 3 A.I.R.</strong> &nbsp; / &nbsp; COMMUNITY MODS &nbsp; / &nbsp; YOUR NEXT RUN STARTS HERE</p>
+        </div>
+    </section>
+
+    <div class="ticker" aria-label="Archive topics">
+        <span>Character swaps</span><span>Zone remixes</span><span>Gameplay tweaks</span><span>Music &amp; sound</span>
+    </div>
+
+    <main>
+        <section class="directory" id="archive" aria-labelledby="archive-title">
+            <div class="section-head">
+                <div>
+                    <p class="section-kicker">The community toolbox</p>
+                    <h2 id="archive-title">Pick your upgrade.</h2>
+                </div>
+                <p class="section-intro">Browse by what you want to remix. Each lane opens a fresh search of community mod listings.</p>
+            </div>
+            <div class="directory-tools">
+                <div class="filters" role="group" aria-label="Filter mod types">
+                    <button class="filter-button" type="button" data-filter="all" aria-pressed="true">All mods</button>
+                    <button class="filter-button" type="button" data-filter="characters" aria-pressed="false">Characters</button>
+                    <button class="filter-button" type="button" data-filter="zones" aria-pressed="false">Zones</button>
+                    <button class="filter-button" type="button" data-filter="gameplay" aria-pressed="false">Gameplay</button>
+                    <button class="filter-button" type="button" data-filter="audio" aria-pressed="false">Audio</button>
+                </div>
+                <label class="search-wrap">
+                    <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="8.7" cy="8.7" r="5.7" stroke="currentColor" stroke-width="1.7"/><path d="m13 13 4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="square"/></svg>
+                    <input id="category-search" type="search" placeholder="Search mod types" aria-label="Search mod types">
+                </label>
+            </div>
+
+            <div class="category-grid" id="category-grid">
+                <article class="category-card" data-category="characters" data-search="characters skins sprites playable character swaps">
+                    <div class="card-art art-character"><span class="art-label">New<br>look</span></div>
+                    <div class="card-content">
+                        <span class="card-meta">01 / Character mods</span>
+                        <h3>Cast remix</h3>
+                        <p>Fresh sprites, character swaps, and new ways to show up on the island.</p>
+                        <a class="card-link" href="https://www.google.com/search?q=site%3Agamebanana.com%2Fmods+Sonic+3+A.I.R.+character+mods" target="_blank" rel="noreferrer">Find character mods <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h9M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.5"/></svg></a>
+                    </div>
+                </article>
+                <article class="category-card" data-category="zones" data-search="zones stages levels backgrounds palettes zone remixes">
+                    <div class="card-art art-zones"><span class="art-label">New<br>world</span></div>
+                    <div class="card-content">
+                        <span class="card-meta">02 / Zone mods</span>
+                        <h3>Stage remix</h3>
+                        <p>Explore reworked levels, new palettes, and familiar routes with a twist.</p>
+                        <a class="card-link" href="https://www.google.com/search?q=site%3Agamebanana.com%2Fmods+Sonic+3+A.I.R.+zone+mods" target="_blank" rel="noreferrer">Find zone mods <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h9M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.5"/></svg></a>
+                    </div>
+                </article>
+                <article class="category-card" data-category="gameplay" data-search="gameplay mechanics controls abilities difficulty tweaks">
+                    <div class="card-art art-play"><span class="art-label">New<br>move</span></div>
+                    <div class="card-content">
+                        <span class="card-meta">03 / Gameplay mods</span>
+                        <h3>Rule bender</h3>
+                        <p>Adjust the feel of a run with new mechanics, abilities, and challenges.</p>
+                        <a class="card-link" href="https://www.google.com/search?q=site%3Agamebanana.com%2Fmods+Sonic+3+A.I.R.+gameplay+mods" target="_blank" rel="noreferrer">Find gameplay mods <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h9M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.5"/></svg></a>
+                    </div>
+                </article>
+                <article class="category-card" data-category="audio" data-search="audio music soundtrack sound effects songs">
+                    <div class="card-art art-audio"><span class="art-label">New<br>sound</span></div>
+                    <div class="card-content">
+                        <span class="card-meta">04 / Audio mods</span>
+                        <h3>Sound switch</h3>
+                        <p>Find soundtrack swaps and audio changes to set a different pace.</p>
+                        <a class="card-link" href="https://www.google.com/search?q=site%3Agamebanana.com%2Fmods+Sonic+3+A.I.R.+audio+mods" target="_blank" rel="noreferrer">Find audio mods <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h9M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.5"/></svg></a>
+                    </div>
+                </article>
+            </div>
+            <p class="no-results" id="no-results" hidden>No mod types match that search. Try another word.</p>
+        </section>
+
+        <section class="about" id="about" aria-labelledby="about-title">
+            <div>
+                <p class="section-kicker">First lap?</p>
+                <h2 id="about-title">Start with<br>the essentials.</h2>
+            </div>
+            <div class="about-copy">
+                <p>AIR Supply is an unofficial fan-made guide for discovering Sonic 3 A.I.R. mods. It is not affiliated with the game’s creators or mod authors. Always check each listing for install steps and version compatibility.</p>
+                <div class="about-links">
+                    <a class="resource-link" href="https://sonic3air.org/" target="_blank" rel="noreferrer">Official A.I.R. site <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5 11 11 5M5 5h6v6" stroke="currentColor" stroke-width="1.5"/></svg></a>
+                    <a class="resource-link" href="https://github.com/Eukaryot/sonic3air" target="_blank" rel="noreferrer">Source &amp; releases <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5 11 11 5M5 5h6v6" stroke="currentColor" stroke-width="1.5"/></svg></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <span class="footer-mark">AIR SUPPLY</span>
+        <span>Unofficial fan-made guide. Sonic the Hedgehog is a property of SEGA.</span>
+        <a href="#top">Back to top ↑</a>
+    </footer>
+
+    <script>
+        const filterButtons = [...document.querySelectorAll(".filter-button")];
+        const categoryCards = [...document.querySelectorAll(".category-card")];
+        const searchInput = document.querySelector("#category-search");
+        const noResults = document.querySelector("#no-results");
+        let activeFilter = "all";
+
+        function updateDirectory() {
+            const query = searchInput.value.trim().toLowerCase();
+            let visibleCount = 0;
+            for (const card of categoryCards) {
+                const matchesFilter = activeFilter === "all" || card.dataset.category === activeFilter;
+                const matchesSearch = !query || `${card.dataset.search} ${card.textContent}`.toLowerCase().includes(query);
+                card.hidden = !matchesFilter || !matchesSearch;
+                if (!card.hidden) visibleCount++;
+            }
+            noResults.hidden = visibleCount > 0;
+        }
+
+        for (const button of filterButtons) {
+            button.addEventListener("click", () => {
+                activeFilter = button.dataset.filter;
+                for (const item of filterButtons) item.setAttribute("aria-pressed", String(item === button));
+                updateDirectory();
+            });
+        }
+        searchInput.addEventListener("input", updateDirectory);
+
+        const canvas = document.querySelector("#pixel-landscape");
+        const context = canvas.getContext("2d");
+        const sceneWidth = 800;
+        const sceneHeight = 340;
+
+        function drawLandscape() {
+            const bounds = canvas.getBoundingClientRect();
+            const pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+            canvas.width = Math.max(1, Math.round(bounds.width * pixelRatio));
+            canvas.height = Math.max(1, Math.round(bounds.height * pixelRatio));
+            context.imageSmoothingEnabled = false;
+            context.setTransform(canvas.width / sceneWidth, 0, 0, canvas.height / sceneHeight, 0, 0);
+
+            const sky = context.createLinearGradient(0, 0, 0, sceneHeight);
+            sky.addColorStop(0, "#379d9a");
+            sky.addColorStop(.58, "#7dcead");
+            sky.addColorStop(1, "#d8dc8d");
+            context.fillStyle = sky;
+            context.fillRect(0, 0, sceneWidth, sceneHeight);
+
+            context.fillStyle = "#ffe590";
+            context.fillRect(550, 57, 48, 48);
+            context.fillStyle = "#ffd876";
+            context.fillRect(542, 65, 64, 32);
+            context.fillRect(558, 49, 32, 64);
+
+            context.fillStyle = "#6ab49b";
+            context.beginPath();
+            context.moveTo(0, 221); context.lineTo(0, 197); context.lineTo(108, 149); context.lineTo(212, 189);
+            context.lineTo(328, 130); context.lineTo(429, 183); context.lineTo(532, 137); context.lineTo(660, 195);
+            context.lineTo(800, 151); context.lineTo(800, 276); context.lineTo(0, 276); context.closePath(); context.fill();
+            context.fillStyle = "#75c49b";
+            context.beginPath();
+            context.moveTo(0, 239); context.lineTo(96, 188); context.lineTo(195, 220); context.lineTo(293, 166);
+            context.lineTo(390, 219); context.lineTo(509, 175); context.lineTo(612, 225); context.lineTo(721, 177);
+            context.lineTo(800, 203); context.lineTo(800, 285); context.lineTo(0, 285); context.closePath(); context.fill();
+
+            for (const [x, y, w] of [[58, 61, 58], [180, 90, 38], [342, 47, 53], [655, 112, 62], [731, 66, 31]]) {
+                context.fillStyle = "rgba(241, 250, 211, .68)";
+                context.fillRect(x, y, w, 10);
+                context.fillRect(x + 10, y - 10, w - 20, 10);
+                context.fillRect(x + 18, y + 10, w - 29, 8);
+            }
+
+            context.fillStyle = "#397d59";
+            context.beginPath();
+            context.moveTo(0, 255); context.lineTo(105, 229); context.lineTo(219, 251); context.lineTo(340, 218);
+            context.lineTo(464, 249); context.lineTo(597, 213); context.lineTo(711, 244); context.lineTo(800, 220);
+            context.lineTo(800, 340); context.lineTo(0, 340); context.closePath(); context.fill();
+
+            const tile = 16;
+            for (let row = 0; row < 7; row++) {
+                for (let col = 0; col < 51; col++) {
+                    const x = col * tile;
+                    const y = 260 + row * tile;
+                    const ridge = 3 * Math.sin(col * .55) + 2 * Math.sin(col * .18);
+                    if (y + ridge < 263) continue;
+                    context.fillStyle = (row + col) % 2 ? "#24714f" : "#2d8056";
+                    context.fillRect(x, Math.max(263, y + ridge), tile, tile);
+                }
+            }
+            context.fillStyle = "#c9ef74";
+            context.fillRect(0, 254, sceneWidth, 5);
+            context.fillStyle = "#ebf3ab";
+            context.fillRect(0, 254, sceneWidth, 2);
+
+            for (const [x, y, radius] of [[154, 224, 10], [178, 204, 10], [202, 189, 10], [226, 189, 10], [250, 205, 10], [274, 224, 10], [298, 224, 10]]) {
+                context.fillStyle = "#fff0a5";
+                context.fillRect(x, y, radius * 2, radius * 2);
+                context.fillStyle = "#e9ad43";
+                context.fillRect(x + 4, y + 4, radius * 2 - 8, radius * 2 - 8);
+                context.fillStyle = "#fff0a5";
+                context.fillRect(x + 7, y + 7, radius * 2 - 14, radius * 2 - 14);
+            }
+
+            context.fillStyle = "#245442";
+            context.fillRect(684, 201, 7, 37);
+            context.fillStyle = "#337a4e";
+            context.fillRect(659, 184, 27, 8); context.fillRect(649, 175, 37, 8); context.fillRect(664, 166, 22, 8);
+            context.fillRect(691, 190, 25, 8); context.fillRect(695, 181, 32, 8); context.fillRect(697, 172, 20, 8);
+        }
+
+        drawLandscape();
+        new ResizeObserver(drawLandscape).observe(canvas);
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <hr><hr>
+</body>
+</html>
+<p<
